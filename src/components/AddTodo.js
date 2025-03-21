@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-// import { AccessAlarm, ThreeDRotation } from "@mui/icons-material";
-// import AddCircleOutlineRoundedIcon from "@mui/icons-material/AddCircleOutlineRounded";
+import AddCircleOutlineRoundedIcon from "@mui/icons-material/AddCircleOutlineRounded";
 
 function AddTodo(props) {
   const [title, setTitle] = useState("");
@@ -43,12 +42,10 @@ function AddTodo(props) {
             id="desc"
           />
         </div>
-        <button
-          type="submit"
-          className="btn btn-success rounded-pill"
-          style={{ border: "1px solid black" }}
-        >
-          {/* <AddCircleOutlineRoundedIcon /> */}+
+        <button type="submit" className="rounded btn">
+          <AddCircleOutlineRoundedIcon
+            sx={{ fontSize: "2.2rem", color: "green" }}
+          />
         </button>
       </form>
     </div>

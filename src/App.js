@@ -1,4 +1,3 @@
-//import logo from './logo.svg';
 import { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
@@ -7,6 +6,7 @@ import Footer from "./components/Footer";
 import AddTodo from "./components/AddTodo";
 function App() {
   const [mode, setMode] = useState("light");
+  const [edit, setEdit] = useState(false);
 
   const toggleMode = () => {
     if (mode === "light") {
@@ -29,6 +29,19 @@ function App() {
     setTodos(
       todos.filter((e) => {
         return e !== todo;
+      })
+    );
+    localStorage.setItem("todos", JSON.stringify(todos));
+  };
+
+  const onEdit = (id, todo) => {
+    setEdit(true);
+    let newTitle = prompt("Enter new title");
+    let newDesc = prompt("Enter new description");
+    let newTodo = { sno: id, title: newTitle, description: newDesc };
+    setTodos(
+      todos.map((e) => {
+        return e === todo ? newTodo : e;
       })
     );
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -61,7 +74,7 @@ function App() {
         searchBar={false}
       />
       <AddTodo addTodo={addTodo} />
-      <Todo todo={todos} onDelete={onDelete} />
+      <Todo todo={todos} onDelete={onDelete} onEdit={onEdit} />
       <Footer />
     </div>
   );

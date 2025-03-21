@@ -2,8 +2,11 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-dark text-light" style={{ marginTop: "155px" }}>
-      <p className="text-center py-4">CopyRight &copy; Memo-List </p>
+    <footer className=" text-secondary" style={{ marginTop: "155px" }}>
+      <small>
+        {" "}
+        <p className="text-center py-4">CopyRight &copy; Memo-List </p>
+      </small>
     </footer>
   );
 }
